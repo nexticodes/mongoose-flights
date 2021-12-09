@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+<form id="add-flight-form" action="" method="POST">
+<label for="airline">
+    Select an airline:
+    <input name="airline" type="radio" value="American">American
+    <input name="airline" type="radio" value="Southwest">Southwest
+    <input name="airline" type="radio" value="United">United
+</label>
+<label for="airline">
+    Select airport:
+    <input name="airport" type="radio" value="AUS">Austin Bergstrom International Airport (Texas)
+    <input name="airport" type="radio" value="DFW">Dallas Fort Worth International Airport (Texas)
+    <input name="airport" type="radio" value="DEN">Denver International Airport (Colorado)
+    <input name="airport" type="radio" value="LAX">Los Angeles International Airport (California)
+    <input name="airport" type="radio" value="SAN">San Diego International Airport (California)
+</label>
+<label for="flightNo">
+    Flight #(10 - 9999)
+    <input name="flightNo" type="number" min="10" max="9999">
+</label>
+<label for="departs">
+    Departs
+    <input type="datetime-local" name="departs">
+</label>
+<button type="submit">Add</button>
+</form>
+<%- include('../partials/footer') %>
