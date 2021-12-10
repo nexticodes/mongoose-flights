@@ -17,7 +17,7 @@ function index(req, res){
 function show(req, res){
     Flight.findById(req.params.id, function(err, flight){
         res.render('flights/show', { title: `Viewing Flight#${flight.flightNo}`, flight});
-    });
+    }); 
 };
 
 function newForm(req, res){
