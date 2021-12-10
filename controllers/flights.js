@@ -1,5 +1,6 @@
 module.exports = {
     index,
+    show,
     new: newForm,
     create,
 };
@@ -10,6 +11,12 @@ function index(req, res){
     Flight.find({}, function(err, flights){
         if (err) console.log(err);
         res.render('flights/index', { title: 'All Flights', flights});
+    });
+};
+
+function show(req, res){
+    Flight.findById(req.params.id, function(err, flight){
+        res.render('flights/show', { title: `Viewing Flight#${flight.flightNo}`, flight});
     });
 };
 
