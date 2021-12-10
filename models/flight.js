@@ -17,9 +17,9 @@ const flightSchema = new Schema({
         max: 9999
     },
     departs: {
-        type: Number,
+        type: Date,
         default: function() {
-            new Date().getFullYear()
+            return new Date().getFullYear() + 1
         }
     }
 }, {
