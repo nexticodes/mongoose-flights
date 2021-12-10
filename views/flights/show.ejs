@@ -22,23 +22,54 @@
         <button type="submit">Add Destination</button>
     </form>
 
-    <% if (flight.destinations.length) { %>
-    <table>
-        <tr>
-            <th>Arrival</th>
-            <th>Destination</th>
-        </tr>
-        <% flight.destinations.forEach(f => { %>
-            <tr>
-                <td><%= f.arrival.toLocaleString() %></td>
-                <td><%= f.airport %></td>
-            </tr>           
-        <% })  %>
-    </table>
-    
-    <% } else { %>
-        <h3> No Destinations Yet!
-    <% } %>
-    
 
-<%- include('../partials/footer') %>
+    <% if (tickets.length) { %>
+        <table>
+            <tr>
+                <th>Seat</th>
+                <th>Price</th>
+            </tr>
+            <% tickets.forEach(t=> { %>
+                <tr>
+                    <td>
+                        <%= t.seat %>
+                    </td>
+                    <td>
+                        <%= t.price %>
+                    </td>
+                </tr>
+                <% }) %>
+        </table>
+
+        <% } else { %>
+            <h3> No Tickets Yet! </h3>
+            <% } %>
+
+                <form action="/flights/<%=flight._id%>/tickets/new" method="GET">
+                    <input type="submit" value="ADD TICKET">
+                </form>
+
+                <% if (flight.destinations.length) { %>
+                    <table>
+                        <tr>
+                            <th>Arrival</th>
+                            <th>Destination</th>
+                        </tr>
+                        <% flight.destinations.forEach(f=> { %>
+                            <tr>
+                                <td>
+                                    <%= f.arrival.toLocaleString() %>
+                                </td>
+                                <td>
+                                    <%= f.airport %>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </table>
+
+                    <% } else { %>
+                        <h3> No Destinations Yet!
+                            <% } %>
+
+
+                                <%- include('../partials/footer') %>
