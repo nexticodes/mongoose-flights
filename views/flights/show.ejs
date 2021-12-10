@@ -6,4 +6,40 @@
     <h3>Departs: <%= flight.departs.toLocaleString() %>
     </h3>
 
+    <form id="destinations-form" action="/flights/<% flight._id %>/destinations" method="POST">
+        <h4>Add a Destination!</h4>
+        <label for="airline">
+            Select airport:
+            <input name="airport" type="radio" value="AUS" checked>Austin Bergstrom International Airport (Texas)
+            <input name="airport" type="radio" value="DFW">Dallas Fort Worth International Airport (Texas)
+            <input name="airport" type="radio" value="DEN">Denver International Airport (Colorado)
+            <input name="airport" type="radio" value="LAX">Los Angeles International Airport (California)
+            <input name="airport" type="radio" value="SAN">San Diego International Airport (California)
+        </label>
+        <label for="arrival">
+            Arrival Time:
+            <input type="datetime-local" name="arrival">
+        </label>
+        <button type="submit">Add Destination</button>
+    </form>
+
+    <% if (flight.destinations.length) { %>
+    <table>
+        <tr>
+            <th>Arrival</th>
+            <th>Destination</th>
+        </tr>
+        <% flight.destinations.forEach(f => { %>
+            <tr>
+                <td><%= f.arrival.toLocaleString() %></td>
+                <td><%= f.destination %></td>
+            </tr>           
+        <% })  %>
+    </table>
+    
+    <% } else { %>
+        <h3> No Destinations Yet!
+    <% } %>
+    
+
 <%- include('../partials/footer') %>
