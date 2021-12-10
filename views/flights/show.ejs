@@ -5,8 +5,7 @@
     </h3>
     <h3>Departs: <%= flight.departs.toLocaleString() %>
     </h3>
-
-    <form id="destinations-form" action="/flights/<% flight._id %>/destinations" method="POST">
+    <form id="destinations-form" action="/flights/<%= flight._id %>/destinations" method="POST">
         <h4>Add a Destination!</h4>
         <label for="airline">
             Select airport:
@@ -32,7 +31,7 @@
         <% flight.destinations.forEach(f => { %>
             <tr>
                 <td><%= f.arrival.toLocaleString() %></td>
-                <td><%= f.destination %></td>
+                <td><%= f.airport %></td>
             </tr>           
         <% })  %>
     </table>
