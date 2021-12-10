@@ -1,3 +1,18 @@
 <%- include('../partials/header') %>
-
+<table>
+    <tr>
+        <th>Flight No.</th>
+        <th>Airport</th>
+        <th>Airline</th>
+        <th>Departs</th>
+    </tr>
+    <% flights.forEach( flight => { %>
+        <tr>
+            <td><%= flight.flightNo %></td>
+            <td><%= flight.airport %></td>
+            <td><%= flight.airline %></td>
+            <td><%= `${flight.departs.toLocaleDateString()} ${flight.departs.toLocaleTimeString()}` %></td>
+        </tr>
+    <% }) %> 
+</table>
 <%- include('../partials/footer') %>
