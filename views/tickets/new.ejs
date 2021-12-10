@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<form action="" method="POST">
+    <label for="seat">
+        Seat Number (Must be 'A1' thru 'F99')  
+        <input name="seat" required pattern="[A-F][1-9]\d?">
+    </label>
+    <label for="price">
+        Price
+        <input name="price" min="0" max="500" step="10">
+    </label>
+    <button type="number" type="submit">Add</button>
+</form>
+
+<%- include('../partials/footer') %>
