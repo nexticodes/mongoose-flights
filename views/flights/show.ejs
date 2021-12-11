@@ -39,8 +39,9 @@
                         <%= t.price %>
                     </td>
                     <td>
-                        <form action="/tickets/t._id?_method=DELETE" method="POST">
+                        <form action="/tickets/<%=t._id%>?_method=DELETE" method="POST">
                             <input type="submit" value="X">
+                            <input name="flightId" type="hidden" value="<%=flight._id%>">
                         </form>
                         <td>
                 </tr>
